@@ -1,0 +1,44 @@
+<button id="hide-filters-btn" class="btn btn-info col-12" onclick="toggle_filters()">Fermer</button>
+<form id='search-filters' class="form col-12">
+    <div class="panel-heading collapsed" data-toggle="collapse" data-target="#type-logement">
+            <span class="fa fa-chevron-down"></span>
+            <span class="fa fa-chevron-right"></span>
+            Type de logement
+    </div>
+    <div class="collapse" id="type-logement" class="card">
+        <div class="card-body">
+            <input type="checkbox" name="logement-entier" id="logement-entier"/>
+            <label for="logement-entier">Logement entier</label>
+            <small id="logement-entier-help" class="form-text text-muted">Un logement entier, rien que pour vous.</small>
+        </div>
+        <div class="card-body">
+            <input type="checkbox" name="chambre-prive" id="chambre-prive"/>
+            <label for="chambre-prive">Chambre privee</label>
+            <small id="chambre-prive-help" class="form-text text-muted">Disposer de votre propore chambre et partagez les espaces communs.</small>
+        </div>
+        <div class="card-body">
+            <input type="checkbox" name="chambre-partagee" id="chambre-partagee"/>
+            <label for="chambre-partagee">Chambre partagee</label>
+            <small id="chambre-partagee-help" class="form-text text-muted">Votre espace est partage (ex. une chambre commune).</small>
+        </div>
+    </div>
+    <hr/>
+
+    <div class="panel-heading collapsed" data-toggle="collapse" data-target="#host-booking">
+            <span class="fa fa-chevron-down"></span>
+            <span class="fa fa-chevron-right"></span>
+            Host and booking
+    </div>
+    <div class="collapse" id="host-booking" class="card">
+    </div>
+    <hr/>
+
+    <div class="panel-heading collapsed" data-toggle="collapse" data-target="#chambre-lit">
+            <span class="fa fa-chevron-down"></span>
+            <span class="fa fa-chevron-right"></span>
+            Chambres et lites
+    </div>
+    <div class="collapse" id="chambre-lit" class="card">
+    </div>
+    <hr/>
+</form>

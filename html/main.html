@@ -1,0 +1,127 @@
+<div class="row">
+    <div id="side-menu" class="col-ld-4 col-md-3 col-sd-12">
+
+            <button id="toggle-map" class="btn btn-info col-12" onclick="toggle_map()">Afficher la carte</button>
+
+            <button id="show-filters-btn" class="btn btn-info col-12" onclick="toggle_filters()">Filtres</button>
+            <hr/>
+
+            <div id="filters"></div>
+    </div>
+
+    <div id="announces-container" class="col-ld-8 col-md-9 col-sd-12">
+        <h1>Resultats de la recherche</h1>
+        <div id="announces" class="col-12">
+    </div>
+    
+    </div>
+
+    <div id="map"style="height:600px;display:none;" class="col-ld-8 col-md-9 col-sd-12"></div>
+    
+
+    
+    <script>
+        function myMap() {
+            var mapOptions = {
+                center: new google.maps.LatLng(51.5, -0.12),
+                zoom: 10,
+                mapTypeId: google.maps.MapTypeId.HYBRID
+            }
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        }
+
+        var toggle_map = function(){
+            var announces = document.getElementById('announces-container');
+            var map = document.getElementById('map');
+            var toggle_btn = document.getElementById('toggle-map');
+            toggle_btn.classList.toggle('active');
+            if(announces.style.display){
+                announces.style.display = "";
+                map.style.display = "none";
+   
+            }else{
+                announces.style.display = "none";
+                map.style.display = "";
+            }
+        }
+
+        var toggle_filters = function(){
+            var filters = document.getElementById('filters');
+
+            if(filters.style.display){
+                filters.style.display = "";
+   
+            }else{
+                filters.style.display = "none";
+            }
+        }
+
+        var announces_content = document.getElementById('announces');
+    
+        if(announces && announces_content){
+            for(announce of announces){
+                var announce_content = document.createElement('div');
+                announce_content.classList.add('announce');
+                announce_content.classList.add('row');
+    
+                var announce_image_case = document.createElement('div');
+                announce_image_case.classList.add('col-md-4');
+                announce_image_case.classList.add('col-sd-5');
+                announce_image_case.classList.add('img-fluid');
+                announce_image_case.classList.add('announce-image-case');
+                announce_content.appendChild(announce_image_case);
+
+
+                var announce_image = document.createElement('img');
+                announce_image.src = announce.image_path;
+                announce_image.classList.add('announce-image');
+                announce_image.classList.add('col-12');
+                announce_image_case.appendChild(announce_image);
+    
+                var announce_info = document.createElement('div');
+                announce_info.classList.add('col-md-6');
+                announce_info.classList.add('col-sd-10');
+                announce_info.classList.add('announce-info');
+                announce_content.appendChild(announce_info);
+    
+                var info_type = document.createElement('p');
+                info_type.innerText = announce.type;
+                info_type.classList.add('announce-type');
+                announce_info.appendChild(info_type);
+
+                var info_title = document.createElement('p');
+                info_title.innerText = announce.title;
+                info_title.classList.add('announce-title');
+                announce_info.appendChild(info_title);
+
+                var info_description = document.createElement('p');
+                info_description.innerText = announce.description;
+                info_description.classList.add('announce-description');
+                announce_info.appendChild(info_description);
+    
+                var announce_supp = document.createElement('div');
+                announce_supp.classList.add('col-md-2');
+                announce_supp.classList.add('col-sd-2');
+                announce_supp.classList.add('announce-supp');
+                announce_content.appendChild(announce_supp);
+
+                var supp_price = document.createElement('p');
+                supp_price.innerText = announce.price +'€';
+                supp_price.classList.add('announce-price');
+                announce_supp.appendChild(supp_price);
+
+                var supp_price_unite = document.createElement('span');
+                supp_price_unite.innerText = announce.price_unite;
+                supp_price_unite.classList.add('announce-price-unite');
+                announce_supp.appendChild(supp_price_unite);
+    
+                announces_content.appendChild(announce_content);
+                announces_content.appendChild(document.createElement('hr'));
+            }
+
+            $("#filters").load("filters.html");
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+
+</div>

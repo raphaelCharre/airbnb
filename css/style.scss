@@ -1,0 +1,131 @@
+#announces{
+}
+
+.announce{
+    margin-top : 20px;
+    border-radius: 5px;
+
+}
+
+.announce-image-case{
+    padding : 0;
+    margin : 0;
+}
+
+.announce-image{
+    border-radius: 5px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.announce-type{
+    margin :0;
+    color : maroon;
+}
+
+.announce-title{
+    font-weight: bold;
+    font-size: 1.2em;
+    margin :0;
+}
+
+.announce-description{
+    margin :0;
+}
+
+.announce-info{
+}
+
+.announce-supp{
+    border-left: solid 1px lightgray;
+}
+
+.announce-price{
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 0px;
+}
+
+/** FORM */
+
+.form-button-collapse{
+    background-color: transparent;
+    border : none;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    
+}
+
+.form-button-collapse:hover{
+    color: #333;
+    border : none;
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+#filters{
+    height: 100%;
+    background-color: white;
+}
+
+#map{
+    border: solid 1px darkgray;
+}
+
+.panel-heading.collapsed .fa-chevron-down,
+.panel-heading .fa-chevron-right {
+  display: none;
+}
+
+.panel-heading.collapsed .fa-chevron-right,
+.panel-heading .fa-chevron-down {
+  display: inline-block;
+}
+
+.panel-heading {
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+
+@media (max-width: 767.98px) {
+    #filters{
+       position: fixed;
+       display: '';
+       width: 100%;
+       z-index: 10;
+       bottom: 0;
+       left: 0;
+    }
+
+    #show-filters-btn{
+        display : "";
+        margin-top: 15px;
+    }
+
+    #hide-filters-btn{
+        display : "";
+        margin-bottom: 15px;
+    }
+
+}
+@media (min-width: 767.98px) {
+
+    #filters{
+        position: relative;
+        display: "";
+    }
+
+    #show-filters-btn{
+        display : none;
+    }
+
+    #hide-filters-btn{
+        display : none;
+    }
+}
